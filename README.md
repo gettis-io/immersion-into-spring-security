@@ -7,4 +7,4 @@ Course Language: Russian
 
 To run any lesson app:
 1. checkout master branch
-2. Open terminal and call `./gradlew :module_1:lesson_1:bootRun` or any other 
+2. Open terminal and call `./gradlew :module_1:lesson_1:bootRun` or another lesson and module. 
