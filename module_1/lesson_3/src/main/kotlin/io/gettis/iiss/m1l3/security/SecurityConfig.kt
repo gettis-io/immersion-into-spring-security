@@ -31,7 +31,7 @@ class SecurityConfig: WebSecurityConfigurerAdapter() {
 
         //region Authorization
             .authorizeRequests()
-                .antMatchers(HttpMethod.GET, "/coffeeShops**").hasRole("USER")
+                .antMatchers(HttpMethod.GET, "/coffeeShops/**").hasRole("USER")
 //                .mvcMatchers("/admin").access("hasRole('ADMIN')")
 //                .regexMatchers("/public$").anonymous()
 //                .requestMatchers(RequestMatcher { it.method == "POST" }).denyAll()
