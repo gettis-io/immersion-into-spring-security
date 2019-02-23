@@ -31,7 +31,7 @@ class SecurityConfig: WebSecurityConfigurerAdapter() {
 
         //region Authorization
             .authorizeRequests()
-                .antMatchers(HttpMethod.GET, "/admin**").hasRole("ADMIN")
+                .antMatchers(HttpMethod.GET, "/coffeeShops**").hasRole("USER")
 //                .mvcMatchers("/admin").access("hasRole('ADMIN')")
 //                .regexMatchers("/public$").anonymous()
 //                .requestMatchers(RequestMatcher { it.method == "POST" }).denyAll()
@@ -39,7 +39,6 @@ class SecurityConfig: WebSecurityConfigurerAdapter() {
 //                .filterSecurityInterceptorOncePerRequest(true)
 //                .accessDecisionManager(null)
 //                .expressionHandler(null)
-//                .withObjectPostProcessor(null)
                 .and()
         //endregion
 
@@ -59,10 +58,10 @@ class SecurityConfig: WebSecurityConfigurerAdapter() {
     }
 
     override fun configure(auth: AuthenticationManagerBuilder) {
-        auth.inMemoryAuthentication().withUser("admin").password("P@SSWORD").authorities("ROLE_ADMIN")
+        auth.inMemoryAuthentication().withUser("user").password("{noop}1234").roles("USER")
     }
 
     override fun configure(web: WebSecurity) {
-        web.ignoring().antMatchers("/static")
+        web.debug(true).ignoring().antMatchers("/error")
     }
 }
